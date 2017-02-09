@@ -1,0 +1,9 @@
+{
+  "name": "csv-parse-scalajs",
+  "version": "0.3.1",
+  "private": true,
+  "dependencies": {
+    "csv-parse": "^1.2.0",
+    "source-map": "^0.5.6"
+  }
+}
