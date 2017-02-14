@@ -1,21 +1,26 @@
 Csv-parse API for Scala.js
 ================================
-This is a Scala.js type-safe binding for [csv-parse](https://www.npmjs.com/package/csv-parse)
+[csv-parse](https://www.npmjs.com/package/csv-parse) - CSV parsing implementing the Node.js stream.Transform API.
 
-CSV parsing implementing the Node.js stream.Transform API.
+### Description
 
-#### Build Dependencies
+Part of the CSV module, this project is a parser converting CSV text input into arrays or objects. 
+It implements the Node.js stream.Transform API. It also provides a simple callback-based API for convenience. 
+It is both extremely easy to use and powerful. It was first released in 2010 and is used against big data sets 
+by a large community.
 
-* [ScalaJs.io v0.3.x](https://github.com/ldaniels528/scalajs.io)
+### Build Dependencies
+
+* [ScalaJs.io v0.3.x](https://github.com/scalajs-io/scalajs.io)
 * [SBT v0.13.13](http://www.scala-sbt.org/download.html)
 
-#### Build/publish the SDK locally
+### Build/publish the SDK locally
 
 ```bash
  $ sbt clean publish-local
 ```
 
-#### Running the tests
+### Running the tests
 
 Before running the tests the first time, you must ensure the npm packages are installed:
 
@@ -29,7 +34,7 @@ Then you can run the tests:
 $ sbt test
 ```
 
-#### Examples
+### Examples
 
 ```scala
 import io.scalajs.JSON
@@ -109,7 +114,7 @@ readable.onEnd(() => {
 ]
 ```
 
-#### Artifacts and Resolvers
+### Artifacts and Resolvers
 
 To add the `CsvParse` binding to your project, add the following to your build.sbt:  
 

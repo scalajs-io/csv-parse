@@ -1,6 +1,6 @@
 {
-  "name": "csv-parse-scalajs",
-  "version": "0.3.1",
+  "name": "csv-parse-sjs",
+  "version": "1.2.0",
   "private": true,
   "dependencies": {
     "csv-parse": "^1.2.0",
