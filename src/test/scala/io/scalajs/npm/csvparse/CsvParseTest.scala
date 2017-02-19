@@ -2,10 +2,13 @@ package io.scalajs.npm.csvparse
 
 import io.scalajs.JSON
 import io.scalajs.nodejs.Assert
+import io.scalajs.nodejs.buffer.Buffer
 import io.scalajs.npm.readablestream.Readable
+import io.scalajs.util.JSONHelper._
 import org.scalatest.FunSpec
 
 import scala.scalajs.js
+import scala.scalajs.js.|
 
 /**
   * CsvParse Test
@@ -25,7 +28,7 @@ class CsvParseTest extends FunSpec {
           |"David", "Banner", "The Incredible Hulk", 1985
           |"Peter", "Parker", "The Amazing Spider-Man", 1999""".stripMargin
 
-      val results = js.Array[js.Any]()
+      val results = js.Array[Buffer | String]()
 
       val parser = CsvParse(new ParserOptions(
         comment = "#",
@@ -38,8 +41,8 @@ class CsvParseTest extends FunSpec {
         skip_empty_lines = true,
         trim = true
       ))
-      parser.onData { (data: js.Any) =>
-        info(s"data: ${JSON.stringify(data)}")
+      parser.onData { data =>
+        info(s"data: $data")
         results.push(data)
       }
 
@@ -68,7 +71,7 @@ class CsvParseTest extends FunSpec {
           |"a","b","c","d"""".stripMargin
 
       CsvParse(text, new ParserOptions(comment = "#"), (err, output) => {
-        Assert(err == null, err)
+        Assert.equal(err, null, err.toJson)
         Assert.deepEqual(output, js.Array(js.Array("1", "2", "3", "4"), js.Array("a", "b", "c", "d")))
       })
     }
@@ -80,7 +83,7 @@ class CsvParseTest extends FunSpec {
           |#This is a comment!""".stripMargin
 
       CsvParse(text, new ParserOptions(comment = "#"), (err, output) => {
-        Assert(err == null, err)
+        Assert.equal(err, null, err.toJson)
         Assert.deepEqual(output, js.Array(js.Array("a", "b", "c", "d"), js.Array("1", "2", "3", "4")))
       })
     }

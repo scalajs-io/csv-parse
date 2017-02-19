@@ -13,6 +13,12 @@ import scala.scalajs.js.|
 class Parser(val options: ParserOptions) extends Readable with Writable {
 
   /**
+    * Undocumented method
+    * @see https://github.com/nodejs/node-v0.x-archive/blob/cfcb1de130867197cbc9c6012b7e84e08e53d032/lib/fs.js#L1597-L1620
+    */
+  override def close(callback: js.Function = js.native): Unit = js.native
+
+  /**
     * Internal counter of records being processed.
     */
   def count: Int = js.native

@@ -1,6 +1,7 @@
 package io.scalajs.npm.csvparse
 
 import io.scalajs.RawOptions
+import io.scalajs.nodejs.Error
 import io.scalajs.nodejs.events.IEventEmitter
 
 import scala.scalajs.js
@@ -32,7 +33,7 @@ trait CsvParse extends IEventEmitter {
 
   def apply(options: ParserOptions | RawOptions, callback: js.Function2[String, CsvResults, Any]): Unit = js.native
 
-  def apply(text: String, options: ParserOptions | RawOptions, callback: js.Function2[String, CsvResults, Any]): Unit = js.native
+  def apply(text: String, options: ParserOptions | RawOptions, callback: js.Function2[Error, CsvResults, Any]): Unit = js.native
 
   def apply(text: String, callback: js.Function2[String, CsvResults, Any]): Unit = js.native
 
