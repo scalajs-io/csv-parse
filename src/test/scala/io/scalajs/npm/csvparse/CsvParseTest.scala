@@ -28,7 +28,7 @@ class CsvParseTest extends FunSpec {
           |"David", "Banner", "The Incredible Hulk", 1985
           |"Peter", "Parker", "The Amazing Spider-Man", 1999""".stripMargin
 
-      val results = js.Array[Buffer | String]()
+      val results = js.Array[js.Any]()
 
       val parser = CsvParse(new ParserOptions(
         comment = "#",
@@ -41,8 +41,8 @@ class CsvParseTest extends FunSpec {
         skip_empty_lines = true,
         trim = true
       ))
-      parser.onData { data =>
-        info(s"data: $data")
+      parser.onData[js.Any] { data =>
+        info(s"data: ${JSON.stringify(data)}")
         results.push(data)
       }
 
