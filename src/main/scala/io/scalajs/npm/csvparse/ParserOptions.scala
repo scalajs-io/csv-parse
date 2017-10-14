@@ -1,7 +1,7 @@
 package io.scalajs.npm.csvparse
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.ScalaJSDefined
+
 import scala.scalajs.js.|
 
 /**
@@ -35,7 +35,7 @@ import scala.scalajs.js.|
   *                               "auto_parse" option. Be careful, it relies on Date.parse.
   * @author lawrence.daniels@gmail.com
   **/
-@ScalaJSDefined
+
 class ParserOptions(var delimiter: js.UndefOr[String] = js.undefined,
                     var rowDelimiter: js.UndefOr[String] = js.undefined,
                     var quote: js.UndefOr[String] = js.undefined,

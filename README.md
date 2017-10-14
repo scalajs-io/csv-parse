@@ -118,7 +118,7 @@ readable.onEnd(() => {
 To add the `CsvParse` binding to your project, add the following to your build.sbt:  
 
 ```sbt
-libraryDependencies += "io.scalajs.npm" %%% "csv-parse" % "0.4.1"
+libraryDependencies += "io.scalajs.npm" %%% "csv-parse" % "0.4.2"
 ```
 
 Optionally, you may add the Sonatype Repository resolver:
